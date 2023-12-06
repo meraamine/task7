@@ -51,23 +51,28 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          HeadlineWidget(title: 'Categories'),
-          CategoriesRowHome(),
-          ValueListenableBuilder(
-              valueListenable: indexNotifier,
-              builder: (context, value, _) {
-                return CarouselSliderEx(imageUrls: [
-                  "https://m.media-amazon.com/images/I/81S-ekaE+vS._AC_UL320_.jpg",
-                  "https://m.media-amazon.com/images/I/61hMQOHmEIL._AC_UL320_.jpg",
-                  "https://m.media-amazon.com/images/I/81b9Eh286BL._AC_UL320_.jpg",
-                  "https://m.media-amazon.com/images/I/61U-R3-znNL._AC_UL320_.jpg"
-                ], onBtnPressed: () {});
-              }),
-          CardProduact(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            HeadlineWidget(title: 'Categories'),
+            CategoriesRowHome(),
+            ValueListenableBuilder(
+                valueListenable: indexNotifier,
+                builder: (context, value, _) {
+                  return CarouselSliderEx(imageUrls: [
+                    "https://m.media-amazon.com/images/I/81S-ekaE+vS._AC_UL320_.jpg",
+                    "https://m.media-amazon.com/images/I/61hMQOHmEIL._AC_UL320_.jpg",
+                    "https://m.media-amazon.com/images/I/81b9Eh286BL._AC_UL320_.jpg",
+                    "https://m.media-amazon.com/images/I/61U-R3-znNL._AC_UL320_.jpg"
+                  ], onBtnPressed: () {});
+                }),
+            SizedBox(
+              height: 10,
+            ),
+            CardProduact(),
+          ],
+        ),
       ),
     );
   }
